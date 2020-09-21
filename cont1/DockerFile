@@ -1,0 +1,17 @@
+FROM mcr.microsoft.com/windows/servercore:1903
+
+# RUN ipconfig
+RUN mkdir "C:\\app"
+RUN mkdir "C:\\TEMP"
+COPY ./libs/ "C:\\app"
+
+# CMD ["powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass"]
+# CMD ["powershell.exe", "ipconfig"]
+# CMD ["ping", "-t", "localhost"]
+CMD ["C:\\app\\webserver.exe", ">>" , "webserverout.txt" ]
+
+
+# For Debugging
+# ==========================================
+# docker build -t container1 .
+# docker run -it container1 powershell

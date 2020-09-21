@@ -1,0 +1,1 @@
+cargo build && cp ./target/debug/req.exe ./libs
